@@ -1,0 +1,13 @@
+name = "teensy_spark"
+description = "Shiny new project"
+version = "0.1.0-dev"
+
+authors = ["Chris Eberly"]
+maintainers = ["Chris Eberly <ceberly@users.noreply.github.com>"]
+maintainers-logins = ["ceberly"]
+
+executables = ["teensy_spark"]
+[[depends-on]]
+gnatprove = "^12.1.1"
+[[depends-on]]
+gnat_arm_elf = "^12.2.1"
