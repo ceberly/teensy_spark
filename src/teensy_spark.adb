@@ -1,8 +1,10 @@
-with Ada.Text_IO; use Ada.Text_IO;
+with Watchdog;
 
 procedure Teensy_Spark is
 begin
-  loop
-    null;
-  end loop;
+   Watchdog.Disable;
+
+   loop
+      null;
+   end loop;
 end Teensy_Spark;
