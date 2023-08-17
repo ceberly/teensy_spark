@@ -1,18 +1,17 @@
 with System;
+with Interfaces; use Interfaces;
 
 package body Sim with
    SPARK_Mode => On
 is
-   type U32 is mod 2**32;
-
    --   This is the only register we care about so we don't need to type out
    --   the whole record;
-   Scgc5 : U32 with
+   Scgc5 : Unsigned_32 with
       Address => System'To_Address (16#4004_8038#),
       Volatile;
 
    procedure Enable_Clock (C : Clock) is
-      S : U32;
+      S : Unsigned_32;
    begin
       case C is
          when Port_C =>
