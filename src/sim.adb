@@ -7,8 +7,7 @@ is
    --   This is the only register we care about so we don't need to type out
    --   the whole record;
    Scgc5 : Unsigned_32 with
-      Address => System'To_Address (16#4004_8038#),
-      Volatile;
+      Address => System'To_Address (16#4004_8038#), Import;
 
    procedure Enable_Clock (C : Clock) is
       S : Unsigned_32;

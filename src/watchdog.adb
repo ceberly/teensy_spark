@@ -19,8 +19,8 @@ is
       Unlock := 16#C520#;
       Unlock := 16#D928#;
 
-      Asm ("NOP", Volatile => True);
-      Asm ("NOP", Volatile => True);
+      Asm ("nop", Volatile => True);
+      Asm ("nop", Volatile => True);
 
       C       := Stctrlh;
       Stctrlh := C and not 16#0000_0001#;

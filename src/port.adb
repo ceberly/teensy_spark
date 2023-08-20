@@ -3,14 +3,6 @@ with System;
 with Interfaces; use Interfaces;
 
 package body Port is
-   type Pcr_Type is array (Pin_Control_Index'Range) of Unsigned_32 with
-      Volatile_Components;
-
-   type Port_Repr is limited record
-      Pcr : Pcr_Type;
-   end record with
-      Volatile;
-
    type Bit_Band_Member is array (Natural range 0 .. 31) of Unsigned_32 with
       Volatile_Components;
 
@@ -24,29 +16,41 @@ package body Port is
    end record with
       Volatile;
 
-   Port_C : Port_Repr with
-      Address => System'To_Address (16#4004_B000#),
+   Port_C_Pin5 : Unsigned_32 with
+      Address => System'To_Address (16#4004_B014#),
       Import;
 
    GPIO_C : Bit_Band with
       Address => System'To_Address (16#43FE_1000#),
       Import;
 
-   procedure Set_Pin_Mode (P : Pin_Control_Index; Mode : Unsigned_32) is
+   procedure Set_Pin_Mode is
       R : Unsigned_32;
+      Mode : Unsigned_32 := 1 and 16#0000_0007#;
    begin
-      R := Port_C.Pcr (P);
-      R := R and 16#FFFF_F8FF#;
+      R := Port_C_Pin5;
 
-      R := R or Shift_Left (Mode and 16#0000_0007#, 8);
+      Mode := Shift_Left (Mode, 8);
 
-      Port_C.Pcr (P) := R;
+      R := R and 16#FFFFF8FF#;
+      R := R or Mode;
+
+      Port_C_Pin5 := R;
    end Set_Pin_Mode;
+
+   procedure Setup is
+   begin
+      Set_Pin_Mode;
+      GPIO_C.Pddr (5) := 1;
+   end Setup;
 
    procedure Turn_On_Light is
    begin
-      Set_Pin_Mode (5, 1);
-      GPIO_C.Pddr (5) := 1;
       GPIO_C.Psor (5) := 1;
    end Turn_On_Light;
+
+   procedure Turn_Off_Light is
+   begin
+      GPIO_C.Pcor (5) := 1;
+   end Turn_Off_Light;
 end Port;
