@@ -3,15 +3,13 @@ with System.Machine_Code; use System.Machine_Code;
 with Interfaces;          use Interfaces;
 
 package body Watchdog with
-   SPARK_Mode => On
+  SPARK_Mode => On
 is
    Unlock : Unsigned_16 with
-      Volatile => True,
-      Address  => System'To_Address (16#4005_200E#);
+     Volatile => True, Address => System'To_Address (16#4005_200E#);
 
    Stctrlh : Unsigned_16 with
-      Volatile => True,
-      Address  => System'To_Address (16#4005_2000#);
+     Volatile => True, Address => System'To_Address (16#4005_2000#);
 
    procedure Disable is
       C : Unsigned_16;

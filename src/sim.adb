@@ -2,12 +2,12 @@ with System;
 with Interfaces; use Interfaces;
 
 package body Sim with
-   SPARK_Mode => On
+  SPARK_Mode => On
 is
    --   This is the only register we care about so we don't need to type out
    --   the whole record;
    Scgc5 : Unsigned_32 with
-      Address => System'To_Address (16#4004_8038#), Import;
+     Address => System'To_Address (16#4004_8038#), Import;
 
    procedure Enable_Clock (C : Clock) is
       S : Unsigned_32;
