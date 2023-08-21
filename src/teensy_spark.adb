@@ -9,7 +9,7 @@ procedure Teensy_Spark is
    procedure Wait is
       I : Natural := 0 with Volatile => True;
    begin
-      while I < 500000 loop
+      while I < 250000 loop
          Asm ("yield", Volatile => True);
          I := I + 1;
       end loop;

@@ -1,6 +1,6 @@
 with "config/teensy_spark_config.gpr";
 project Teensy_Spark is
-   for Target use "arm-elf";
+   for Target use "arm-eabi";
    for Runtime ("Ada") use "light-cortex-m4";
 
    for Source_Dirs use ("src/", "config/");
@@ -33,7 +33,7 @@ project Teensy_Spark is
      for CPU_Name use "ARM Cortex-M4";
      for Float_Handling use "soft";
 
-     for Number_Of_Interrupts use "111";
+     for Number_Of_Interrupts use "80";
 
      for Memories use ("RAM", "FLASH");
 

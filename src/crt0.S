@@ -133,38 +133,6 @@ __vectors:
         .word __unknown_interrupt_handler /* 77 */
         .word __unknown_interrupt_handler /* 78 */
         .word __unknown_interrupt_handler /* 79 */
-        .word __unknown_interrupt_handler /* 80 */
-        .word __unknown_interrupt_handler /* 81 */
-        .word __unknown_interrupt_handler /* 82 */
-        .word __unknown_interrupt_handler /* 83 */
-        .word __unknown_interrupt_handler /* 84 */
-        .word __unknown_interrupt_handler /* 85 */
-        .word __unknown_interrupt_handler /* 86 */
-        .word __unknown_interrupt_handler /* 87 */
-        .word __unknown_interrupt_handler /* 88 */
-        .word __unknown_interrupt_handler /* 89 */
-        .word __unknown_interrupt_handler /* 90 */
-        .word __unknown_interrupt_handler /* 91 */
-        .word __unknown_interrupt_handler /* 92 */
-        .word __unknown_interrupt_handler /* 93 */
-        .word __unknown_interrupt_handler /* 94 */
-        .word __unknown_interrupt_handler /* 95 */
-        .word __unknown_interrupt_handler /* 96 */
-        .word __unknown_interrupt_handler /* 97 */
-        .word __unknown_interrupt_handler /* 98 */
-        .word __unknown_interrupt_handler /* 99 */
-        .word __unknown_interrupt_handler /* 100 */
-        .word __unknown_interrupt_handler /* 101 */
-        .word __unknown_interrupt_handler /* 102 */
-        .word __unknown_interrupt_handler /* 103 */
-        .word __unknown_interrupt_handler /* 104 */
-        .word __unknown_interrupt_handler /* 105 */
-        .word __unknown_interrupt_handler /* 106 */
-        .word __unknown_interrupt_handler /* 107 */
-        .word __unknown_interrupt_handler /* 108 */
-        .word __unknown_interrupt_handler /* 109 */
-        .word __unknown_interrupt_handler /* 110 */
-
 
 	.text
 
